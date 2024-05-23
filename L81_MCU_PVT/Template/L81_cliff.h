@@ -1,0 +1,65 @@
+/*!
+    \file    L81_cliff.h
+    \brief   the header for L81_cliff.c
+*/
+
+/*
+    Copyright (c) 2021, GigaDevice Semiconductor Inc.
+
+    Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+    1. Redistributions of source code must retain the above copyright notice, this
+       list of conditions and the following disclaimer.
+    2. Redistributions in binary form must reproduce the above copyright notice,
+       this list of conditions and the following disclaimer in the documentation
+       and/or other materials provided with the distribution.
+    3. Neither the name of the copyright holder nor the names of its contributors
+       may be used to endorse or promote products derived from this software without
+       specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
+OF SUCH DAMAGE.
+*/
+
+#ifndef L81_CLIFF_H
+#define L81_CLIFF_H
+
+#include "gd32l23x.h"
+
+typedef enum{
+	cliff_On  = 0u,
+	cliff_Off = 1u,
+}CLIFF_OnOff_ENUM;
+
+typedef enum{
+	cliff_run  = 1u,
+	cliff_idle = 0u,
+}CLIFF_STATUS_ENUM;
+
+typedef enum{
+	cliff_safe   = 0u,
+	cliff_danger = 1u,
+}CLIFF_DANGER_ENUM;
+
+extern volatile CLIFF_OnOff_ENUM cliff_OnOff;
+extern volatile CLIFF_STATUS_ENUM cliff_status;
+
+extern void L81_cliff_init(void);
+extern uint8_t l81_cliff_getlock(void);
+extern void l81_cliff_get_adc(uint16_t *leftF, uint16_t *leftB, uint16_t *rightF, uint16_t *rightB);
+extern uint8_t l81_AT_CLIFF_R_func(char params[]);
+extern uint8_t l81_AT_CLIFF_W_func(char params[]);
+extern uint8_t l81_AT_CLIFF_Danger_func(char params[]);
+extern void l81_cliff_danger_status(void);
+
+extern uint8_t is_printf_cliff;  //1124 rjq++
+#endif  //L81_CLIFF_H

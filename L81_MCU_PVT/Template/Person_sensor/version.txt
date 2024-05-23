@@ -1,0 +1,13 @@
+====
+  Change Log:
+	
+  EDIT HISTORY FOR FILE
+  Mon  May  9  2022  ST  - 1.0
+  - Initial Version
+  Tue  May	17 2022  ST  - 1.1
+  - Add file tmos_algo.c tmos_algo.h
+  Wen  May  18 2022  ST  - 1.2
+  - Input signal changed from Tobj to Tobj_comp
+  - Fix issue of p_flag still deadlock after recovery operation is performed. 
+  
+  
