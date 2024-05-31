@@ -2,11 +2,10 @@
 
 base libiray for other app
 
-MCU包说明：
-1.mcu文件夹是 gd32l233rc6的应用代码；
-2.编译工具建议Keil uVision5;
-3.当前接口使用，请参考”L81的SOC&MCU通讯协议.pdf“
-
+MCU package description:
+1.mcu folder is the application code of gd321233rc6;
+2. The compiler tool is recommended Keil uVision5;
+3. For current interface use, please refer to "SOC&MCU Communication Protocol.pdf of L81"
 
 ### Contribute
 
